@@ -1,0 +1,412 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+*.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  -ms-user-select: none;
+  user-select: none;
+}
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  background: linear-gradient(0deg, rgba(0,82,230,1) 80%, rgba(69,146,244,1) 100%);
+  z-index: 10;
+}
+.nav-logo {
+  height: 60%;
+}
+.nav-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-right: 1px solid rgba(0, 0, 0, 0.7);
+  padding: 0 16px;
+  color: white;
+  background: linear-gradient(0deg, rgb(73, 170, 72) 80%, rgb(144, 200, 143) 100%)
+}
+.nav-start p {
+  margin: 0;
+  padding: 0 8px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+}
+.nav-btns {
+  display: flex;
+  gap: 8px;
+}
+.nav-btn {
+  color: rgb(92, 173, 231);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  height: 100%;
+  width: 40px;
+  font-size: 32px;
+}
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.nav-widget {
+  display: flex;
+  padding: 0 16px;
+  background: linear-gradient(0deg, rgb(14, 143, 238) 80%, rgb(29, 195, 247) 100%);
+  border-left: 1px solid rgba(0, 0, 0, 0.7);
+}
+.nav-time {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+}
+
+.background {
+  position: relative;
+  height: calc(100vh - 40px);
+  min-height: calc(100vh - 40px);
+  margin: 0 auto;
+  overflow: hidden;
+}
+.background-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.window-container {
+  animation: open 0.25s;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 320px;
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 32px;
+  border-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  overflow: hidden;
+}
+@keyframes open {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes close {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+.window-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  border: 2px solid #0052e6;
+  border-top: none;
+}
+.bar {
+  position: absolute;
+  display: flex;
+  top: 0px;
+  width: calc(100% + 2px);
+  height: 32px;
+  background: linear-gradient(0deg, rgba(0,82,230,1) 80%, rgba(69,146,244,1) 100%);
+}
+.bar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 24px;
+  color: rgb(92, 173, 231);
+}
+.bar-title {
+  margin: auto 0;
+  color: white;
+  pointer-events:none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+.bar-buttons {
+  color: white;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  height: 30px;
+  display: flex;
+}
+.bar-close {
+  cursor: pointer;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  height: 26px;
+  width: 26px;
+  background: linear-gradient(135deg, rgb(249, 165, 147) 5%, rgb(223, 78, 21) 20%, rgb(223, 78, 21) 80%, rgb(203, 56, 20) 100%);
+}
+.bar-close:hover {
+  background: linear-gradient(135deg, rgb(201, 134, 120) 5%, rgb(196, 68, 18) 20%, rgb(196, 68, 18) 80%, rgb(172, 48, 17) 100%);
+}
+
+/* Temperature Converter */
+.temp-container {
+  display: flex;
+  gap: 16px ;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ece9d8;
+}
+.temp-arrow {
+  font-size: 32px;
+}
+.temp-input-container,
+.temp-output-container {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+.temp-input {
+  background-color: #f3f3ef;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 48px;
+  width: 128px;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
+.temp-output {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 3px;
+  height: 48px;
+  width: 128px;
+  background-color: #f3f3ef;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}
+.temp-output p {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: fit-content;
+  width: fit-content;
+  margin: 0;
+}
+.temp-dropdown-btn {
+  position: relative;
+  background-color: #f3f3ef;
+  color: black;
+  padding: 8px;
+  font-size: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+.temp-dropdown-btn::before {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  content: '';
+  width: 0;
+  height: 0;
+	border-top: 3px solid transparent;
+	border-left: 4px solid black;
+	border-bottom: 3px solid transparent;
+  transform: rotate(90deg);
+}
+.temp-dropdown-btn::after {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  content: '';
+  width: 0;
+  height: 0;
+	border-top: 3px solid transparent;
+	border-left: 4px solid black;
+	border-bottom: 3px solid transparent;
+  transform: rotate(270deg);
+}
+.temp-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.temp-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.temp-dropdown-content button {
+  width: 100%;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+.temp-dropdown-content button:hover {background-color: #ddd;}
+.temp-dropdown-content button[aria-selected="true"] {background-color: #ddd;}
+.temp-dropdown:hover .temp-dropdown-content {display: block;}
+.temp-dropdown:hover .temp-dropdown-btn {background-color: #c0c0bc;}
+
+/* Calculator */
+.calc-container {
+  background-color: #ece9d8;
+  padding: 8px;
+  height: 100%;
+  width: 100%;
+}
+.calc-display-container {
+  display: flex;
+  width: 100%;
+  height: 20%;
+}
+.calc-display {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: calc(100% - 8px);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 36px;
+  letter-spacing: -1px;
+  padding: 0 4px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+.calc-buttons {
+  display: grid;
+  gap: 8px;
+  height: 80%;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
+}
+.calc-btn {
+  border: 1px solid black;
+  border-radius: 4px;
+  background: #f3f3ef;
+  color: black;
+  display: grid;
+  align-content: center;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 30px;
+}
+.calc-btn:hover {
+  background-color: #c0c0bc;
+}
+
+/* Notepad */
+.notepad-bar {
+  display: flex;
+  height: 24px;
+  width: 100%;
+  background-color: #ece9d8;
+  border-bottom: 1px solid gray;
+}
+.notepad {
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+
+.notepad-dropdown-btn {
+  position: relative;
+  height: 100%;
+  background: none;
+  color: black;
+  padding: 0 8px;
+  font-size: 12px;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+}
+.notepad-dropdown-btn:hover {
+  background-color: #326bbd;
+}
+.notepad-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.notepad-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  margin-top: 1px;
+  padding: 2px;
+  z-index: 1;
+}
+.notepad-dropdown-content button {
+  width: 200px;
+  border: none;
+  color: black;
+  padding: 4px 32px;
+  text-decoration: none;
+  text-align: left;
+  background: none;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+.notepad-dropdown-content button:hover {background-color: #326bbd; color: white;}
+.notepad-dropdown:hover .notepad-dropdown-content {display: block;}
+.notepad-dropdown:hover .notepad-dropdown-btn {background-color: #326bbd; color: white;}
