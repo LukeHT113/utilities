@@ -67,7 +67,8 @@ export default function Notepad({uid, title, width, height, closeWindow, z, brin
     setDragging(false)
   }
 
-  const onTextChange = (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onTextChange = (e: any) => {
     setText(e.target.value);
   }
 
